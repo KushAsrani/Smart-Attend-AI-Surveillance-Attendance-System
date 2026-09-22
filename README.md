@@ -72,8 +72,8 @@ Example (common) packages:
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/KushAsrani/MCA-Sem-3-Project-Smart-Attend-AI-Surveillance-Attendance-System.git
-   cd MCA-Sem-3-Project-Smart-Attend-AI-Surveillance-Attendance-System
+   git clone https://github.com/KushAsrani/Smart-Attend-AI-Surveillance-Attendance-System.git
+   cd Smart-Attend-AI-Surveillance-Attendance-System
    ```
 
 2. Create and activate a virtual environment
