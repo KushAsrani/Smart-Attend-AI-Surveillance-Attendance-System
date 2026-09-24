@@ -60,6 +60,7 @@ except Exception as e: print(f"AI Error: {e}")
 # ==========================================
 class WebcamStream:
     def __init__(self, src=0):
+        import cv2
         self.stream = cv2.VideoCapture(src)
         (self.grabbed, self.frame) = self.stream.read()
         self.stopped = False
@@ -286,6 +287,10 @@ def surveillance_worker(camera_url):
 
 @app.route("/")
 def home(): return render_template("base.html", title="Home")
+
+@app.route("/health")
+def health():
+    return {"status": "ok"}
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
