@@ -286,7 +286,8 @@ def surveillance_worker(camera_url):
 # ==========================================
 
 @app.route("/")
-def home(): return render_template("base.html", title="Home")
+def home(): 
+    return render_template("base.html", title="Home")
 
 @app.route("/health")
 def health():
