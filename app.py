@@ -1,5 +1,3 @@
-import cv2
-import numpy as np
 import os
 import pickle
 import traceback
@@ -10,8 +8,8 @@ from datetime import datetime
 from threading import Thread
 from flask import Flask, render_template, request, jsonify, redirect, url_for, flash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from insightface.app import FaceAnalysis
 from models import db, User, Student, Teacher, Attendance, Schedule, Bunking
+from pathlib import Path
 
 # Suppress Warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -21,8 +19,11 @@ app = Flask(__name__)
 # ==========================================
 # 1. CONFIGURATION
 # ==========================================
-app.config['SECRET_KEY'] = 'secret-key-123'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///attendance.db'
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "DATABASE_URL",
+    "sqlite:///attendance.db"
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -106,6 +107,9 @@ def check_pose(face, target_pose):
 
 # --- CAPTURE WINDOW (REGISTRATION) ---
 def start_capture_window(roll_no):
+    import cv2
+    import numpy as np
+    from insightface.app import FaceAnalysis
     global app_face
     if app_face is None: 
         return False, "AI Model Not Loaded"
@@ -196,6 +200,9 @@ current_alerts = []
 alert_lock = threading.Lock()
 
 def surveillance_worker(camera_url):
+    import cv2
+    import numpy as np
+
     global surveillance_active, current_alerts, known_faces_db
     
     try:
@@ -243,8 +250,11 @@ def surveillance_worker(camera_url):
                     detection_counts[identity] = 0
                     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                     filename = f"{identity}_{timestamp}.jpg"
-                    filepath = os.path.join('static/bunk_proofs', filename)
-                    cv2.imwrite(filepath, frame)
+                    upload_dir = Path("/tmp/bunk_proofs")
+                    upload_dir.mkdir(parents=True, exist_ok=True)
+
+                    filepath = upload_dir / filename
+                    cv2.imwrite(str(filepath), frame)
                     
                     with alert_lock:
                         if not any(a['roll'] == identity for a in current_alerts):
