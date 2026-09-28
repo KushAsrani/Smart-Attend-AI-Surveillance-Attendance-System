@@ -65,12 +65,12 @@
                     <!-- LOGIN / LOGOUT LOGIC -->
                     {% if current_user.is_authenticated %}
                         <!-- Logout Button (Red) -->
-                        <a href="/logout" class="group relative px-6 py-2.5 bg-red-50 text-red-600 font-semibold rounded-full border border-red-200 hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm">
+                        <a href="/logout" class="group relative px-6 py-2.5 bg-red-50 text-red-600 font-semibold rounded-full border border-red-200 hover:bg-red-600 hover:text-white transition-all duration-300 inline-flex items-center">
                             <span class="relative z-10"><i class="fa-solid fa-right-from-bracket mr-2"></i>Logout</span>
                         </a>
                     {% else %}
                         <!-- Login Button (Blue) -->
-                        <a href="/login" class="group relative px-6 py-2.5 bg-slate-900 text-white font-semibold rounded-full shadow-lg shadow-slate-900/20 hover:bg-blue-600 hover:shadow-blue-600/30 transition-all duration-300 overflow-hidden">
+                        <a href="/login" class="group relative px-6 py-2.5 bg-slate-900 text-white font-semibold rounded-full shadow-lg shadow-slate-900/20 hover:bg-blue-600 hover:shadow-blue-600/40 transition-all duration-300 inline-flex items-center">
                             <span class="relative z-10">Login</span>
                             <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>
