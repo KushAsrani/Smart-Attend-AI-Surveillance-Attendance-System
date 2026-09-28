@@ -1,9 +1,10 @@
-import sys
-from pathlib import Path
+from flask import Flask
 
-ROOT_DIR = Path(__file__).resolve().parent.parent
+app = Flask(__name__)
 
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
+@app.route("/")
+def home():
+    return "OK"
 
-from app import app
+if __name__ == "__main__":
+    app.run()

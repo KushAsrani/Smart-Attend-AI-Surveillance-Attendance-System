@@ -1,14 +1,8 @@
 {
-  "buildCommand": "pip install -r requirements.txt",
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "python3.9"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/api/app.py"
+      "dest": "/api/index.py"
     }
   ]
 }
