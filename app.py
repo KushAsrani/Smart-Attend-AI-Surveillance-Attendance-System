@@ -45,6 +45,7 @@ app_face = None
 known_faces_db = {}
 
 try:
+    from insightface.app import FaceAnalysis
     print("[INFO] Loading InsightFace (buffalo_l) - High Accuracy Mode...")
     # Using Large Model for better detection
     app_face = FaceAnalysis(name='buffalo_l', providers=['CPUExecutionProvider'])
