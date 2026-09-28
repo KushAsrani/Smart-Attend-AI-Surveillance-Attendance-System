@@ -596,6 +596,9 @@ def action_bunking():
 def student_register(): return render_template("student_register.html")
 @app.route("/teacher_register")
 def teacher_register(): return render_template("teacher_register.html")
+@app.route("/demo")
+def demo():
+    return render_template("demo.html", title="Demo")
 
 if __name__ == "__main__":
     with app.app_context(): db.create_all()

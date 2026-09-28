@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo - Smart Attend</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    .gradient-text { background: linear-gradient(to right, #2563eb, #9333ea); -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <main class="flex-grow max-w-5xl mx-auto py-24 px-6 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-6 border border-blue-100">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+      </span>
+      Live Demo
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">SmartAttend <span class="gradient-text">Demo</span></h1>
+    <p class="text-slate-500 max-w-2xl mx-auto mb-8">
+      This demo page shows how the live attendance demo will be presented. Replace this content with an embedded demo video, screenshots or an interactive camera stream as required.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <a href="/" class="px-6 py-3 bg-white border border-slate-200 rounded-lg text-slate-700 hover:bg-slate-50">Back to Home</a>
+      <a href="/login" class="px-6 py-3 bg-blue-600 text-white rounded-lg">Login</a>
+    </div>
+
+    <!-- Example placeholder for demo content -->
+    <div class="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+      <div class="h-64 bg-slate-50 rounded-md flex items-center justify-center text-slate-400">
+        Demo content placeholder — embed your webcam feed, video, or screenshots here.
+      </div>
+      <p class="text-sm text-slate-400 mt-4">To embed a live camera stream, replace the placeholder with an iframe or video element pointing at your stream source (ensure CORS and streaming access are handled on the server).</p>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center">
+    <p class="text-sm text-slate-400">&copy; 2025 Smart Attendance System</p>
+  </footer>
+</body>
+</html>
